@@ -43,7 +43,7 @@ WildRydes.map = WildRydes.map || {};
             headers: {
                 "Content-Type": "application/json",
                 "Access-Control-Allow-Origin": "*",
-                Authorization: authToken
+                Authorization: authToken,
             },
             body: JSON.stringify({
                 PickupLocation: {
