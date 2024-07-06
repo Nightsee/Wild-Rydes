@@ -15,7 +15,7 @@ WildRydes.map = WildRydes.map || {};
         alert(error);
         window.location.href = '/signin.html';
     });
-    // function requestUnicorn(pickupLocation) {
+    function requestUnicorn(pickupLocation) {
     //     $.ajax({
     //         method: 'POST',
     //         url: _config.api.invokeUrl + '/ride',
