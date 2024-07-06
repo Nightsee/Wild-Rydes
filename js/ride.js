@@ -16,29 +16,42 @@ WildRydes.map = WildRydes.map || {};
         window.location.href = '/signin.html';
     });
     function requestUnicorn(pickupLocation) {
-        $.ajax({
+        // $.ajax({
+        //     method: 'POST',
+        //     url: _config.api.invokeUrl + '/ride',
+        //     // crossDomain: true,
+        //     headers: {
+        //         'Access-Control-Allow-Origin': '*',
+        //         Authorization: authToken
+        //     },
+        //     data: JSON.stringify({
+        //         PickupLocation: {
+        //             Latitude: pickupLocation.latitude,
+        //             Longitude: pickupLocation.longitude
+        //         }
+        //     }),
+        //     contentType: 'application/json',
+        //     success: completeRequest,
+        //     error: function ajaxError(jqXHR, textStatus, errorThrown) {
+        //         console.error('Error requesting ride: ', textStatus, ', Details: ', errorThrown);
+        //         console.error('Response: ', jqXHR.responseText);
+        //         alert('An error occured when requesting your unicorn:\n' + jqXHR.responseText);
+        //     }
+        // });
+        fetch(`${_config.api.invokeUrl}/ride`, {
             method: 'POST',
-            url: _config.api.invokeUrl + '/ride',
-            // crossDomain: true,
             headers: {
-                'Access-Control-Allow-Origin': '*',
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Origin": "*",
                 Authorization: authToken
             },
-            data: JSON.stringify({
+            body: JSON.stringify({
                 PickupLocation: {
                     Latitude: pickupLocation.latitude,
                     Longitude: pickupLocation.longitude
                 }
             }),
-            contentType: 'application/json',
-            success: completeRequest,
-            error: function ajaxError(jqXHR, textStatus, errorThrown) {
-                console.error('Error requesting ride: ', textStatus, ', Details: ', errorThrown);
-                console.error('Response: ', jqXHR.responseText);
-                alert('An error occured when requesting your unicorn:\n' + jqXHR.responseText);
-            }
-        });
-        fetch("");
+        }).then(res => res.json()).then(res => completeRequest(res));
     }
 
     function completeRequest(result) {
