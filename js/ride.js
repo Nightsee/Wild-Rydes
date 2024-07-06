@@ -21,6 +21,7 @@ WildRydes.map = WildRydes.map || {};
             url: _config.api.invokeUrl + '/ride',
             // crossDomain: true,
             headers: {
+                'Access-Control-Allow-Origin': '*',
                 Authorization: authToken
             },
             data: JSON.stringify({
