@@ -40,6 +40,7 @@ WildRydes.map = WildRydes.map || {};
         // });
         fetch(`${_config.api.invokeUrl}/ride`, {
             method: 'POST',
+            mode: "no-cors",
             headers: {
                 "Content-Type": "application/json",
                 "Access-Control-Allow-Origin": "*",
