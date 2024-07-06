@@ -37,28 +37,6 @@ WildRydes.map = WildRydes.map || {};
     //             alert('An error occured when requesting your unicorn:\n' + jqXHR.responseText);
     //         }
     //     });
-        // fetch(`${_config.api.invokeUrl}/ride`, {
-        //     method: 'POST',
-        //     mode: "no-cors",
-        //     headers: {
-        //         "Content-Type": "application/json",
-        //         "Access-Control-Allow-Origin": "*",
-        //         Authorization: authToken,
-        //     },
-        //     body: JSON.stringify({
-        //         PickupLocation: {
-        //             Latitude: pickupLocation.latitude,
-        //             Longitude: pickupLocation.longitude
-        //         }
-        //     }),
-        //     contentType: 'application/json',
-        //     success: completeRequest,
-        //     error: function ajaxError(jqXHR, textStatus, errorThrown) {
-        //         console.error('Error requesting ride: ', textStatus, ', Details: ', errorThrown);
-        //         console.error('Response: ', jqXHR.responseText);
-        //         alert('An error occured when requesting your unicorn:\n' + jqXHR.responseText);
-        //     }
-        // });
         fetch(`${_config.api.invokeUrl}/ride`, {
             method: 'POST',
             headers: {
@@ -79,9 +57,9 @@ WildRydes.map = WildRydes.map || {};
         var unicorn;
         var pronoun;
         let result = JSON.parse(res.body);
-        console.log('Response received from API: ', result);
+        // console.log('Response received from API: ', result);
         unicorn = result.Unicorn;
-        console.log("unicorn: ", unicorn);
+        // console.log("unicorn: ", unicorn);
         pronoun = unicorn.Gender === 'Male' ? 'his' : 'her';
         displayUpdate(unicorn.Name + ', your ' + unicorn.Color + ' unicorn, is on ' + pronoun + ' way.');
         animateArrival(function animateCallback() {
