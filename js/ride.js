@@ -75,9 +75,10 @@ WildRydes.map = WildRydes.map || {};
         }).then(res => res.json()).then(res => completeRequest(res));
     }
 
-    function completeRequest(result) {
+    function completeRequest(res) {
         var unicorn;
         var pronoun;
+        let result = json.parse(res.body);
         console.log('Response received from API: ', result);
         unicorn = result.Unicorn;
         console.log("unicorn: ", unicorn);
