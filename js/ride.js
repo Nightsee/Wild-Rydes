@@ -59,20 +59,20 @@ WildRydes.map = WildRydes.map || {};
         //         alert('An error occured when requesting your unicorn:\n' + jqXHR.responseText);
         //     }
         // });
-        fetch(`${_config.api.invokeUrl}/ride`, {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json",
-                "Access-Control-Allow-Origin": "*",
-                Authorization: authToken,
-            },
-            body: JSON.stringify({
-                PickupLocation: {
-                    Latitude: pickupLocation.latitude,
-                    Longitude: pickupLocation.longitude
-                }
-            }),
-        }).then(res => res.json()).then(res => completeRequest(res));
+        // fetch(`${_config.api.invokeUrl}/ride`, {
+        //     method: 'POST',
+        //     headers: {
+        //         "Content-Type": "application/json",
+        //         "Access-Control-Allow-Origin": "*",
+        //         Authorization: authToken,
+        //     },
+        //     body: JSON.stringify({
+        //         PickupLocation: {
+        //             Latitude: pickupLocation.latitude,
+        //             Longitude: pickupLocation.longitude
+        //         }
+        //     }),
+        // }).then(res => res.json()).then(res => completeRequest(res));
     }
 
     function completeRequest(result) {
