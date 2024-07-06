@@ -21,7 +21,6 @@ WildRydes.map = WildRydes.map || {};
             url: _config.api.invokeUrl + '/ride',
             // crossDomain: true,
             headers: {
-                'Access-Control-Allow-Origin': '*',
                 Authorization: authToken
             },
             data: JSON.stringify({
@@ -38,6 +37,7 @@ WildRydes.map = WildRydes.map || {};
                 alert('An error occured when requesting your unicorn:\n' + jqXHR.responseText);
             }
         });
+        fetch("");
     }
 
     function completeRequest(result) {
